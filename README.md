@@ -13,8 +13,8 @@ __main__.py  requirements.txt
 ```
 
 Our "app" contains two files:
-1/ `__main__.py`: This is the entrypoint to our app.
-2/ `requirements.txt`: This is a classic requirements file as consumed by pip.
+1. `__main__.py`: This is the entrypoint to our app.
+2. `requirements.txt`: This is a classic requirements file as consumed by pip.
 
 #### Getting things set up
 First we need to install the dependencies for our app. zipit doesn't much care how dependencies are installed. We just need to keep track of where they're installed.
