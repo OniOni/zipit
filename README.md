@@ -1,6 +1,6 @@
 # zipit
 
-Very thin wrapper around zipapp that let's package a python module and dependencies.
+Very thin wrapper around zipapp that let's you package a python module and dependencies.
 
 ### Example
 We'll use our demo "app" to showcase zipit.
