@@ -29,7 +29,7 @@ $ python3 -m pip install -r app/requirements.txt --target deps
 Once the dependencies are installed, we can let zipit do it's work:
 ```
 cd ..
-$ python3 zipit.py demo/app -d demo/deps
+$ python3 -m zipit demo/app -d demo/deps
 ```
 
 This will produce `.pyz` file runable with python.
