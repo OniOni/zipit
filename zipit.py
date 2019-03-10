@@ -3,6 +3,7 @@ import os
 import pathlib
 import shutil
 import tempfile
+from typing import List
 import zipapp
 
 MAGIC_MAIN = """
@@ -16,20 +17,21 @@ if __name__ == '__main__':
 
 
 def setup() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser()
-    parser.add_argument('src')
-    parser.add_argument('-d', '--deps')
+    parser = argparse.ArgumentParser(description="Package up application and dependencies into pep 441 .pyz format.")
+    parser.add_argument('src', help="Your application")
+    parser.add_argument('-d', '--deps', action='append', help="Your applications dependencies")
 
     return parser
 
 
-def build_app(src: str, deps: str = None):
+def build_app(src: str, deps: List[str] = None):
     tmpdir = tempfile.mkdtemp(suffix='.zipit')
 
     os.mkdir(f"{tmpdir}/app")
     shutil.copytree(src, f"{tmpdir}/app/mod")
     if deps:
-        shutil.copytree(deps, f"{tmpdir}/app/deps")
+        for d in deps:
+            shutil.copytree(d, f"{tmpdir}/app/deps")
 
     magic_main = pathlib.Path(f"{tmpdir}/app/__main__.py")
     magic_main.touch()
