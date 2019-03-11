@@ -1,3 +1,5 @@
+![PyPI](https://img.shields.io/pypi/v/zipit.svg)
+
 # zipit
 
 Very thin wrapper around zipapp that let's you package a python module and dependencies.
