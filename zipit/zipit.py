@@ -22,7 +22,10 @@ def build_app(src: str, deps: List[str] = None, output: str = None):
     shutil.copytree(src, f"{tmpdir}/app/mod")
     if deps:
         for d in deps:
-            shutil.copytree(d, f"{tmpdir}/app/deps")
+            shutil.copytree(
+                d, f"{tmpdir}/app/deps",
+                ignore=shutil.ignore_patterns("*.dist-info")
+            )
 
     magic_main = pathlib.Path(f"{tmpdir}/app/__main__.py")
     magic_main.touch()
